@@ -19,7 +19,7 @@ public class RearWheelDrive : MonoBehaviour {
     public void Start()
 	{
 		wheels = GetComponentsInChildren<WheelCollider>();
-        rig.velocity = 10 * transform.forward;
+        rig.velocity = 8 * transform.forward;
 
         for (int i = 0; i < wheels.Length; ++i) 
 		{
@@ -39,11 +39,11 @@ public class RearWheelDrive : MonoBehaviour {
 	// this helps us to figure our which wheels are front ones and which are rear
 	public void Update()
 	{
-        if (rig.velocity.magnitude > 20)
+        if (rig.velocity.magnitude > 10)
         {
-            rig.drag = rig.velocity.magnitude / 150;
+            rig.drag = rig.velocity.magnitude / 50;
         }
-        else if (rig.velocity.magnitude < 15)
+        else if (rig.velocity.magnitude < 8)
         {
             rig.drag = 0;
         }
